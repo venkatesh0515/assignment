@@ -25,8 +25,5 @@
 4)run the command "npm start" it will open the developemnt server with this http://localhost:3000/
 
 //example Luhn 10 numbers are 7992739875 and 5992739879
-<<<<<<< HEAD
-=======
 
->>>>>>> 12506821343f0d99edef89a8e3e0bfd82f1c607b
 
