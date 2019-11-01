@@ -21,5 +21,8 @@
 
 1)Open new command prompt/terminal window and place the current directory called assignment
 2)run "cd client" commnad to get into inside client(React application)
-3)
+3)just run "npm install" it will install all dependency modules
+4)run the command "npm start" it will open the developemnt server with this http://localhost:3000/
+
+//example Luhn 10 numbers are 7992739875 and 5992739879
 

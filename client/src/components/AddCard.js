@@ -25,7 +25,8 @@ class AddCard extends Component{
                 limit: ''
               },
             data:null,
-            success:null 
+            success:null,
+            exists:null
 
         }
     }
@@ -85,7 +86,6 @@ class AddCard extends Component{
                 // doubling 
                 nSum += parseInt(d / 10); 
                 nSum += parseInt(d % 10); 
-                console.log("this sum" +nSum +"<br>");
                 isSecond = !isSecond; 
             } 
            
@@ -107,9 +107,9 @@ class AddCard extends Component{
         })
         .then(res => res.text())
         .then(text => {
-             console.log(text);
+             
             if(text === "true"){
-              console.log(this.state)
+             
             let prestate = [...this.state.data];  
             let finaldata=(this.state.data !== null)?[...prestate,...[sendData]]:sendData;
               this.setState({
@@ -123,6 +123,16 @@ class AddCard extends Component{
              })
             }
             else{
+             
+              this.setState({
+                 exists:"card already exists",
+                
+              },()=>{
+               setTimeout(()=>{this.setState({exists:null,name:"",
+               cardnumber:"",
+               limit:"",})},2000)
+             })
+             
                
             }
         } ); 
@@ -193,6 +203,7 @@ class AddCard extends Component{
                    />
                     {errors.cardnumber.length > 0 && 
                 <span className='errormsg'>{errors.cardnumber}</span>}
+                 { this.state.exists ? <span className="errormsg">{this.state.exists}</span> :"" }
                   <br/>
                   <label htmlFor="limit">Limit</label><br />
                   <input 

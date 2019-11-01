@@ -40,16 +40,15 @@ const userRoutes = (app, fs) => {
 
 // create
     app.post('/api/card', (req, res) => {
-        // console.log(req.body);
-        // res.status(200).send(true);
+       
         readFile(data => {
             
             const cardId = Object.keys(data["creditcard"]).length;
-            if(cardId>1){
+            if(cardId>=1){
             Object.keys(data["creditcard"]).map((card)=>{
                
               if(data["creditcard"][card].cardnumber===req.body.cardnumber){
-                //   console.log("already exists"); 
+               
 
                 res.status(200).send(false);
                 
